@@ -1,4 +1,4 @@
-/* Model Bench — base styles */
+/* LegaRev.AI: base styles */
 
 :root {
   --page: #F7F8FA;
@@ -239,6 +239,9 @@ img { max-width: 100%; }
 
 .section {
   padding: 48px 0;
+}
+.wrap.section {
+  padding: 48px 24px;
 }
 .section-head {
   display: flex;

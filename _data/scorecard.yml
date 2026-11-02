@@ -1,11 +1,11 @@
-# Model Bench scorecard
+# LegaRev.AI scorecard
 #
-# Each entry is one model's result on the standard Model Bench test paper.
-# Scores are out of 10. Never invent a score — if a model has not been
+# Each entry is one model's result on the standard LegaRev.AI test paper.
+# Scores are out of 10. Never invent a score. If a model has not been
 # tested yet, or a category has not been marked, use "TBC".
 #
 # sample: true marks a placeholder row used only to show the table's
-# layout. Remove sample rows once real results are added — see README.md.
+# layout. Remove sample rows once real results are added, see README.md.
 
 - model: "Sample Model A"
   version: "0.0 (SAMPLE)"

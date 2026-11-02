@@ -17,24 +17,24 @@ scores:
 headnote: >
   This is a sample entry so you can see how a review is laid out before any
   real model has been marked. Sample Model A was run through the standard
-  six-question Model Bench test paper on Indian corporate and transactional
-  work. No score on this page is real — every field reads TBC until an actual
+  six-question LegaRev.AI test paper on Indian corporate and transactional
+  work. No score on this page is real. Every field reads TBC until an actual
   test is carried out and marked.
 held: >
   Not applicable. This is a sample review and carries no finding on the
   model's performance. Replace this file's front matter and body once a real
   test has been run, and remove the sample flag.
 strengths:
-  - "Example strength one — replace with an observed strength, written the way a marker would note it."
+  - "Example strength one, replace with an observed strength, written the way a marker would note it."
   - "Example strength two."
 weaknesses:
-  - "Example weakness one — replace with an observed weakness, with a pointer to the question it showed up in."
+  - "Example weakness one, replace with an observed weakness, with a pointer to the question it showed up in."
   - "Example weakness two."
 questions:
   - num: 1
     prompt: "Draft a conditions precedent clause for a share subscription agreement, consistent with FEMA pricing guidelines for a resident-to-non-resident round."
     answer: |
-      [Sample placeholder. Paste the model's actual answer extract here —
+      [Sample placeholder. Paste the model's actual answer extract here,
       the relevant clause or paragraph, verbatim, trimmed to the part being
       marked.]
     note: "Sample placeholder for the marker's note on this answer."
@@ -66,6 +66,6 @@ questions:
 ---
 
 This review is a sample. Its only purpose is to show the structure a real
-review follows — headnote, held, strengths and weaknesses, and six
+review follows: headnote, held, strengths and weaknesses, and six
 question-by-question cards with a prompt, an answer extract and a marker's
 note. Replace it with a real test once one has been run.
