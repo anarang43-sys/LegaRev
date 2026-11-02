@@ -1,0 +1,101 @@
+---
+layout: default
+---
+<div class="wrap section">
+
+  <nav class="breadcrumb"><a href="{{ '/reviews/' | relative_url }}">Reviews</a> / {{ page.model }}</nav>
+
+  <div class="review-header">
+    <div class="review-meta">REVIEW No. {{ page.review_no }} &middot; {{ page.date | date: "%-d %B %Y" }}</div>
+    <h1>{{ page.title | default: page.model }}</h1>
+    <div class="chip-row">
+      <span class="chip">Version {{ page.version }}</span>
+      <span class="chip">Access: {{ page.access }}</span>
+      <span class="chip">Tested on: {{ page.tested_on }}</span>
+      {% if page.sample %}<span class="chip chip-sample">Sample</span>{% endif %}
+    </div>
+  </div>
+
+  <div class="review-layout">
+    <div class="review-body">
+
+      {% if page.sample %}
+      <div class="disclosure-box" style="margin-bottom: 28px;">
+        This is a sample review used to show the format of the site. It is not a real
+        test result. Every score on this page reads <strong>TBC</strong> on purpose.
+      </div>
+      {% endif %}
+
+      <div class="block">
+        <h2>Headnote</h2>
+        <p>{{ page.headnote }}</p>
+      </div>
+
+      <div class="block">
+        <h2>Held</h2>
+        <p>{{ page.held }}</p>
+      </div>
+
+      {% if page.strengths or page.weaknesses %}
+      <div class="block strengths-weaknesses">
+        <div>
+          <h3>Strengths</h3>
+          <ul>
+            {% for item in page.strengths %}<li>{{ item }}</li>{% endfor %}
+          </ul>
+        </div>
+        <div>
+          <h3>Weaknesses</h3>
+          <ul>
+            {% for item in page.weaknesses %}<li>{{ item }}</li>{% endfor %}
+          </ul>
+        </div>
+      </div>
+      {% endif %}
+
+      {% if page.questions %}
+      <div class="block">
+        <h2>Question by question</h2>
+        {% for q in page.questions %}
+        <div class="qa-card">
+          <span class="qa-no">Q{{ q.num }}</span>
+          <div class="prompt-box">
+            <span class="label">Prompt</span>
+            <p>{{ q.prompt }}</p>
+          </div>
+          <div class="answer-box">
+            <span class="label">Answer extract</span>
+            <pre class="mono">{{ q.answer }}</pre>
+          </div>
+          <div class="note-box">
+            <span class="label">Marker's note</span>
+            <p>{{ q.note }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {{ content }}
+
+      <div class="block disclosure-box">
+        <strong>Disclosure.</strong> {{ page.disclosure | default: "This model was tested using a publicly available version with no vendor involvement in the choice of questions, marking or this write-up. See the full " }}{% unless page.disclosure %}<a href="{{ '/disclosures/' | relative_url }}">disclosures page</a> for how Model Bench handles access, funding and conflicts.{% endunless %}
+      </div>
+
+    </div>
+
+    <aside class="side-panel">
+      <div class="overall-mark">
+        <span class="num mono">{{ page.overall }}</span>
+        <span class="label">Overall mark</span>
+      </div>
+      <ul class="criteria-list">
+        <li><span>Accuracy</span><span class="crit-score">{{ page.scores.accuracy }}</span></li>
+        <li><span>Reasoning</span><span class="crit-score">{{ page.scores.reasoning }}</span></li>
+        <li><span>Hallucination</span><span class="crit-score">{{ page.scores.hallucination }}</span></li>
+        <li><span>Drafting</span><span class="crit-score">{{ page.scores.drafting }}</span></li>
+        <li><span>Instructions</span><span class="crit-score">{{ page.scores.instructions }}</span></li>
+      </ul>
+    </aside>
+  </div>
+</div>

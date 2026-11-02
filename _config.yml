@@ -1,0 +1,39 @@
+title: Model Bench
+tagline: Independent reviews for Indian corporate lawyers
+description: >-
+  Model Bench reviews AI models on Indian corporate and transactional legal
+  work: agreement review, drafting, regulatory reasoning, issue spotting
+  and citation discipline. Tested by a practising corporate lawyer.
+author: Ashish Narang
+author_title: Corporate lawyer, Bengaluru
+url: ""
+baseurl: ""
+newsletter_url: "#"
+contact_email: "hello@example.com"
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+collections:
+  reviews:
+    output: true
+    permalink: /reviews/:path/
+
+defaults:
+  - scope:
+      path: ""
+      type: reviews
+    values:
+      layout: review
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor

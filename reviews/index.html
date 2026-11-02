@@ -1,0 +1,21 @@
+---
+layout: default
+title: Reviews
+permalink: /reviews/
+---
+<div class="wrap section">
+  <div class="section-head">
+    <h1>Reviews</h1>
+  </div>
+  <div class="review-grid">
+    {% assign all_reviews = site.reviews | sort: "date" | reverse %}
+    {% for review in all_reviews %}
+    <a class="review-card" href="{{ review.url | relative_url }}" style="text-decoration:none; color:inherit;">
+      <span class="review-no">REVIEW No. {{ review.review_no }}{% if review.sample %} &middot; SAMPLE{% endif %}</span>
+      <h3>{{ review.model }} <span style="color:var(--label); font-weight:400;">{{ review.version }}</span></h3>
+      <p>{{ review.headnote | truncate: 140 }}</p>
+      <div class="review-score">Overall: {{ review.overall }}</div>
+    </a>
+    {% endfor %}
+  </div>
+</div>

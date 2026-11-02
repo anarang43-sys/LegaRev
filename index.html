@@ -1,0 +1,132 @@
+---
+layout: default
+title: Home
+---
+<div class="wrap">
+
+  <section class="hero">
+    <div>
+      <div class="eyebrow">Independent reviews for Indian corporate lawyers</div>
+      <h1 class="headline">Every new AI model, tested on real corporate legal work.</h1>
+      <p class="hero-sub">
+        Model Bench runs each new model release through the same set of
+        agreement review, drafting and regulatory questions a corporate
+        lawyer in India actually sees, then marks the answers like exam
+        papers — in the open, with no vendor input.
+      </p>
+      <div class="hero-actions">
+        {% assign latest = site.reviews | sort: "date" | reverse | first %}
+        <a class="btn btn-primary" href="{% if latest %}{{ latest.url | relative_url }}{% else %}{{ '/reviews/' | relative_url }}{% endif %}">Read the latest review</a>
+        <a class="btn btn-secondary" href="{{ '/methodology/' | relative_url }}">How the testing works</a>
+      </div>
+    </div>
+
+    <div class="card testpaper-card">
+      <span class="label">The standard test paper</span>
+      <h3>Six questions, every model</h3>
+      <ol>
+        <li>Conditions precedent &amp; FEMA pricing in a share subscription agreement</li>
+        <li>Issue-spotting a related party transaction (S.188, SEBI LODR)</li>
+        <li>Long-stop date &amp; termination rights in an SPA</li>
+        <li>Change of control notice and consent in a facility agreement</li>
+        <li>Stamp duty on a Karnataka share transfer</li>
+        <li>Drafting a non-compete within S.27, Indian Contract Act</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2>Latest reviews</h2>
+      <a class="see-all" href="{{ '/reviews/' | relative_url }}">See all reviews &rarr;</a>
+    </div>
+    <div class="review-grid">
+      {% assign latest_reviews = site.reviews | sort: "date" | reverse | slice: 0, 3 %}
+      {% for review in latest_reviews %}
+      <a class="review-card" href="{{ review.url | relative_url }}" style="text-decoration:none; color:inherit;">
+        <span class="review-no">REVIEW No. {{ review.review_no }}{% if review.sample %} &middot; SAMPLE{% endif %}</span>
+        <h3>{{ review.model }} <span style="color:var(--label); font-weight:400;">{{ review.version }}</span></h3>
+        <p>{{ review.headnote | truncate: 120 }}</p>
+        <div class="review-score">Overall: {{ review.overall }}</div>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2>Scorecard</h2>
+      <a class="see-all" href="{{ '/scorecard/' | relative_url }}">Full scorecard &rarr;</a>
+    </div>
+    <div class="table-scroll">
+      <table class="scorecard-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Model</th>
+            <th>Version</th>
+            <th>Overall</th>
+            <th>Review</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% assign rows = site.data.scorecard | sort: "overall" | reverse %}
+          {% for row in rows limit: 5 %}
+          <tr>
+            <td class="rank">{{ forloop.index }}</td>
+            <td>{{ row.model }}{% if row.sample %} <span class="chip chip-sample">Sample</span>{% endif %}</td>
+            <td>{{ row.version }}</td>
+            <td class="overall">{{ row.overall }}</td>
+            <td><a href="{{ row.review_url | relative_url }}">View</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><h2>How the testing works</h2></div>
+    <div class="method-points">
+      <div class="card">
+        <h3>Same paper, every model</h3>
+        <p>Every model sits the same fixed set of corporate and transactional
+        questions, so results compare like for like, release after release.</p>
+      </div>
+      <div class="card">
+        <h3>Marked by a lawyer</h3>
+        <p>Answers are marked against what a corporate lawyer in India would
+        actually expect to see in a real transaction, not against a generic
+        rubric.</p>
+      </div>
+      <div class="card">
+        <h3>Answers on the record</h3>
+        <p>Every review publishes the prompt, the answer extract and the
+        marker's note, so you can check the mark yourself.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section about-block">
+    <div class="avatar-placeholder">Photo<br>placeholder</div>
+    <div>
+      <h2>About the author</h2>
+      <p style="color: var(--secondary);">
+        Model Bench is written by {{ site.author }}, a {{ site.author_title | downcase }}.
+        It is an independent project, run outside of any firm, testing how AI
+        models handle the kind of corporate and transactional legal work that
+        crosses an Indian lawyer's desk.
+      </p>
+      <a href="{{ '/about/' | relative_url }}">More about the author &rarr;</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="subscribe-band">
+      <h2>Get the next review by email</h2>
+      <p>One email per model, when it's tested. No spam, no sponsor copy.</p>
+      <a class="btn btn-accent" href="{{ site.newsletter_url }}">Subscribe</a>
+    </div>
+  </section>
+
+</div>

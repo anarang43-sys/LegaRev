@@ -1,0 +1,30 @@
+# Model Bench scorecard
+#
+# Each entry is one model's result on the standard Model Bench test paper.
+# Scores are out of 10. Never invent a score — if a model has not been
+# tested yet, or a category has not been marked, use "TBC".
+#
+# sample: true marks a placeholder row used only to show the table's
+# layout. Remove sample rows once real results are added — see README.md.
+
+- model: "Sample Model A"
+  version: "0.0 (SAMPLE)"
+  sample: true
+  agreement_review: "TBC"
+  drafting: "TBC"
+  regulatory: "TBC"
+  issue_spotting: "TBC"
+  citations: "TBC"
+  overall: "TBC"
+  review_url: "/reviews/2026-01-15-sample-model-a/"
+
+- model: "Sample Model B"
+  version: "0.0 (SAMPLE)"
+  sample: true
+  agreement_review: "TBC"
+  drafting: "TBC"
+  regulatory: "TBC"
+  issue_spotting: "TBC"
+  citations: "TBC"
+  overall: "TBC"
+  review_url: "#"

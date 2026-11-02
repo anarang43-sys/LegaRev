@@ -1,0 +1,51 @@
+---
+layout: default
+title: Scorecard
+permalink: /scorecard/
+---
+<div class="wrap section">
+  <div class="section-head">
+    <h1>Scorecard</h1>
+  </div>
+  <p style="color: var(--secondary); max-width: 700px; margin-bottom: 28px;">
+    Every model that has sat the Model Bench test paper, ranked by overall
+    mark. See <a href="{{ '/methodology/' | relative_url }}">methodology</a>
+    for how each category is scored.
+  </p>
+
+  <div class="table-scroll">
+    <table class="scorecard-table">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Model</th>
+          <th>Version</th>
+          <th>Agreement review</th>
+          <th>Drafting</th>
+          <th>Regulatory</th>
+          <th>Issue spotting</th>
+          <th>Citations</th>
+          <th>Overall</th>
+          <th>Review</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% assign rows = site.data.scorecard | sort: "overall" | reverse %}
+        {% for row in rows %}
+        <tr>
+          <td class="rank">{{ forloop.index }}</td>
+          <td>{{ row.model }}{% if row.sample %} <span class="chip chip-sample">Sample</span>{% endif %}</td>
+          <td>{{ row.version }}</td>
+          <td class="num">{{ row.agreement_review }}</td>
+          <td class="num">{{ row.drafting }}</td>
+          <td class="num">{{ row.regulatory }}</td>
+          <td class="num">{{ row.issue_spotting }}</td>
+          <td class="num">{{ row.citations }}</td>
+          <td class="overall">{{ row.overall }}</td>
+          <td><a href="{{ row.review_url | relative_url }}">View</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
